@@ -963,5 +963,13 @@
                 "foreground": "#F14C4C"
             }
         },
+        // #region variant
+        {
+            "scope": "entity.name.type.ts",
+            "settings": {
+                "foreground": "#56B7C3",
+            }
+        }
+        // #endregion
     ]
 }
