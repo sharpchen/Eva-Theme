@@ -969,6 +969,12 @@
             "settings": {
                 "foreground": "#00BEC4",
             }
+        },
+        {
+            "scope": "keyword.operator.expression.default.cs",
+            "settings": {
+                "foreground": "#EF8ED8",
+            }
         }
         // #endregion
     ]
