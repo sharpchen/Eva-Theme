@@ -1,3 +1,51 @@
+2.5.3~2.5.5 (2024-02-02)
+
+* Add All UI
+
+```UI
+editorLineNumber.dimmedForeground: #53577372/#B3B3B466
+debugIcon.breakpointForeground: #E51400/#ec0000
+tree.inactiveIndentGuidesStroke: #454963/#CED1D7
+welcomePage.tileBorder: #ffffff1a/#ced1d7
+```
+
+* Add All Syntax
+
+```Syntax
+meta.attribute.unrecognized.wx:if.html entity.other.attribute-name,meta.attribute.unrecognized.wx:for.html entity.other.attribute-name,meta.attribute.unrecognized.wx:elif.html entity.other.attribute-name,meta.attribute.unrecognized.wx:else.html entity.other.attribute-name: #CF68E1/#C838C6
+punctuation.destructuring: #8E99B1/#8E8E90
+punctuation.definition.arguments.begin,punctuation.definition.arguments.end,punctuation.definition.textit.begin,punctuation.definition.textit.end,punctuation.definition.textbf.begin,punctuation.definition.textbf.end: #838FA7/#5D5D5FD8
+constant.other.general.math.tex,constant.character.latex,punctuation.definition.constant.math.tex,punctuation.definition.constant.latex: #98C379/#53A053
+punctuation.definition.keyword.tex: #56B7C3/#00BEC4
+markup.bold.textbf.latex: #B0B7C3/#5D5D5F
+```
+
+* Change All Syntax
+
+```Syntax
+meta.property-list.css: #56B7C3/#00BEC4 → #676E95/#A9A9AA
+keyword.control.preamble.latex,keyword.control punctuation.definition.function.latex: #A78CFA/#7C4DFF → #CF68E1/#C838C6
+support.function.general.tex,support.function.general.tex punctuation.definition.function.tex: #E06C75/#CD6069 → #CF68E1/#C838C6
+keyword.other.item.latex：#CF68E1/#C838C6 → #A78CFA/#7C4DFF
+keyword.control.equation.newline.latex,keyword.control.newline.tex: #CF68E1/#C838C6 → #E06C75/#CD6069
+```
+
+2.5.2 (2024-01-11)
+
+* Change All UI
+
+```UI
+editorOverviewRuler.currentContentForeground: #598DEF/#598DEF → #598DEF59/#0065FF3F
+editorOverviewRuler.incomingContentForeground: #45B746/#45B746 → #45B7463F/#45B7464C
+```
+
+* Add All Syntax
+
+```Syntax
+string entity.other.attribute-name,string meta.attribute.directive.vue: #98C379/#53A053
+source.css.embedded.html punctuation.attribute-shorthand.bind.html: #8E99B1/#8E8E90
+```
+
 2.5.1 (2024-01-01)
 
 * Add All Syntax
