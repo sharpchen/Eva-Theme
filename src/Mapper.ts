@@ -26,9 +26,11 @@ export type TextmateTheme = {
   tokenColors: TextmateScopeGroup[];
 };
 
-export type HighlightAs = keyof {
-  [K in keyof Palette as Palette[K] extends object ? never : K]: any;
-};
+export type HighlightAs =
+  | 'none' // none for setting the style as null
+  | keyof {
+      [K in keyof Palette as Palette[K] extends object ? never : K]: any;
+    };
 
 import * as fs from 'node:fs';
 import { dirname, resolve } from 'node:path';
@@ -62,7 +64,7 @@ class HighlightMapper implements HighlightMapping {
     fn?: (p: Palette, as: HighlightAs) => TextmateScopeGroup['settings'],
   ): this {
     scope = typeof scope === 'string' ? scope : (scope as string[]).join(',');
-    this.store.push({ scope, fn: fn ?? undefined, as });
+    this.store.push({ scope, fn, as });
     return this;
   }
   build(): void {
@@ -71,18 +73,20 @@ class HighlightMapper implements HighlightMapping {
       const legacy = readLegacyThemeJson(name);
 
       for (const i of this.store) {
-        const { fn, as } = i;
+        const { fn, as, scope } = i;
         const custom = fn ? fn(p, as) : {};
         const required = styleHandler.handle(name)(p, as);
-        legacy.tokenColors.push({ ...required, ...custom });
+        legacy.tokenColors.push({ scope: scope, settings: { ...required, ...custom } });
       }
 
       const thisFile = fileURLToPath(import.meta.url);
       const thisDir = dirname(thisFile);
       const path = resolve(thisDir, `../themes/${name}.json`);
       fs.writeFileSync(path, JSON.stringify(legacy, null, 2), 'utf8');
+
+      console.log(`${name} generated`);
     });
   }
 }
 
-export const mapper = new HighlightMapper();
+export default new HighlightMapper();

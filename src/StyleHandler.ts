@@ -1,6 +1,11 @@
 import { Palette } from './Palette';
 import { HighlightAs, TextmateScopeGroup } from './Mapper';
 
+// TODO: handle styles for variants
+// refer to Eva-Theme.nvim
+import italic from './shouldBeItalic';
+import bold from './shouldBeBold';
+
 export type HandlerFunc = (p: Palette, as: HighlightAs) => Partial<TextmateScopeGroup['settings']>;
 
 abstract class StyleHandler {
@@ -18,7 +23,7 @@ abstract class StyleHandler {
 
 class NormalHanlder extends StyleHandler {
   handler: HandlerFunc = (p, as) => ({
-    foreground: p[as],
+    foreground: p[as] ?? null,
   });
   capable(_: string): boolean {
     return true;
@@ -28,7 +33,7 @@ class NormalHanlder extends StyleHandler {
 class BoldHandler extends StyleHandler {
   handler: HandlerFunc = (p, as) => ({
     fontStyle: 'bold',
-    foreground: p[as],
+    foreground: p[as] ?? null,
   });
   capable(themeName: string): boolean {
     return themeName.includes('Bold') && !themeName.includes('Italic');
@@ -38,7 +43,7 @@ class BoldHandler extends StyleHandler {
 class ItalicHandler extends StyleHandler {
   handler: HandlerFunc = (p, as) => ({
     fontStyle: 'italic',
-    foreground: p[as],
+    foreground: p[as] ?? null,
   });
   capable(themeName: string): boolean {
     return themeName.includes('Italic') && !themeName.includes('Bold');
@@ -48,7 +53,7 @@ class ItalicHandler extends StyleHandler {
 class ItalicBoldHandler extends StyleHandler {
   handler: HandlerFunc = (p, as) => ({
     fontStyle: 'italic bold',
-    foreground: p[as],
+    foreground: p[as] ?? null,
   });
   capable(themeName: string): boolean {
     return themeName.includes('Bold') && themeName.includes('Italic');

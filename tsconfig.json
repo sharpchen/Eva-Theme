@@ -1,9 +1,11 @@
 {
+    "$schema": "https://json.schemastore.org/tsconfig.json",
     "compilerOptions": {
         // Treat files as modules even if it doesn't use import/export
         "moduleDetection": "force",
         // Ignore module structure
-        "module": "Preserve",
+        "module": "esnext",
+        "target": "esnext",
         // Allow JSON modules to be imported
         "resolveJsonModule": true,
         // Allow JS files to be imported from TS and vice versa
@@ -11,6 +13,7 @@
         // Use correct ESM import behavior
         "esModuleInterop": true,
         // Disallow features that require cross-file awareness
-        "isolatedModules": true
+        "isolatedModules": true,
+        "moduleResolution": "node"
     }
 }
