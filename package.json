@@ -94,5 +94,11 @@
         "id": "a6761011-549f-4561-ae6d-cc9c7a040710",
         "publisherDisplayName": "fisheva",
         "publisherId": "ff69a8bd-aad3-463d-9859-8ecfb1484873"
+    },
+    "devDependencies": {
+        "@types/node": "^22.10.0",
+        "jsonc-parser": "^3.3.1",
+        "tsx": "^4.19.2",
+        "typescript": "^5.7.2"
     }
 }
