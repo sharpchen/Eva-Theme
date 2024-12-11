@@ -13,8 +13,6 @@ const themeNames: string[] = ['Light', 'Dark']
   )
   .map(x => `Eva-${x}`);
 
-console.log(themeNames);
-
 export type TextmateScopeGroup = {
   name?: string;
   scope: string;
@@ -38,7 +36,7 @@ import { fileURLToPath } from 'node:url';
 function readLegacyThemeJson(filename: string): TextmateTheme {
   const thisFile = fileURLToPath(import.meta.url);
   const thisDir = dirname(thisFile);
-  const path = resolve(thisDir, `../legacy//${filename}.json`);
+  const path = resolve(thisDir, `../legacy/${filename}.json`);
   const content = fs.readFileSync(path, 'utf-8');
   return JSONC.parse(content) as TextmateTheme;
 }
